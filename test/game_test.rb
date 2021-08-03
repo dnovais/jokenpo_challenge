@@ -1,13 +1,13 @@
 require 'test_helper'
 
-SCISSOR = 1
+STONE = 1
 PAPER = 2
-STONE = 3
+SCISSOR = 3
 
 describe Game do
   describe "#play" do
     describe "when player 01 win" do
-      describe "when player 01 choose scissor and player 02 choose paper" do
+      describe "player 01 choose scissor and player 02 choose paper" do
         it "should return player 01 win" do
           player_01_choice = SCISSOR
           player_02_choice = PAPER
@@ -20,7 +20,7 @@ describe Game do
         end
       end
 
-      describe "when player 01 choose paper and player 02 choose stone" do
+      describe "player 01 choose paper and player 02 choose stone" do
         it "should return player 01 win" do
           player_01_choice = PAPER
           player_02_choice = STONE
@@ -33,7 +33,7 @@ describe Game do
         end
       end
 
-      describe "when player 01 stone paper and player 02 choose scissor" do
+      describe "player 01 stone paper and player 02 choose scissor" do
         it "should return player 01 win" do
           player_01_choice = STONE
           player_02_choice = SCISSOR
@@ -48,7 +48,7 @@ describe Game do
     end
 
     describe "when player 02 win" do
-      describe "when player 02 choose scissor and player 02 choose paper" do
+      describe "player 02 choose scissor and player 02 choose paper" do
         it "should return player 02 win" do
           player_01_choice = PAPER
           player_02_choice = SCISSOR
@@ -61,7 +61,7 @@ describe Game do
         end
       end
 
-      describe "when player 02 choose paper and player 02 choose stone" do
+      describe "player 02 choose paper and player 02 choose stone" do
         it "should return player 02 win" do
           player_01_choice = STONE
           player_02_choice = PAPER
@@ -74,7 +74,7 @@ describe Game do
         end
       end
 
-      describe "when player 02 stone paper and player 02 choose scissor" do
+      describe "player 02 stone paper and player 02 choose scissor" do
         it "should return player 02 win" do
           player_01_choice = SCISSOR
           player_02_choice = STONE
@@ -89,7 +89,7 @@ describe Game do
     end
 
     describe "when players is draw" do
-      describe "when player 01 and player 02 chooses scissors" do
+      describe "player 01 and player 02 chooses scissors" do
         it "should return draw" do
           player_01_choice = SCISSOR
           player_02_choice = SCISSOR
@@ -102,7 +102,7 @@ describe Game do
         end
       end
 
-      describe "when player 01 and player 02 chooses paper" do
+      describe "player 01 and player 02 chooses paper" do
         it "should return draw" do
           player_01_choice = PAPER
           player_02_choice = PAPER
@@ -115,7 +115,7 @@ describe Game do
         end
       end
 
-      describe "when player 01 and player 02 chooses stone" do
+      describe "player 01 and player 02 chooses stone" do
         it "should return draw" do
           player_01_choice = STONE
           player_02_choice = STONE
