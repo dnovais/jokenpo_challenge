@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Game
+  SCISSOR = 1
+  PAPER = 2
+  STONE = 3
+
   def initialize(player_01, player_02)
     @player_01 = player_01
     @player_02 = player_02
@@ -16,6 +20,14 @@ class Game
 
   def start
     return 'Draw!' if player_01 == player_02
+
+    if player_01 == SCISSOR && player_02 == PAPER
+      'Player 01 win!'
+    elsif player_01 == PAPER && player_02 == STONE
+      'Player 01 win!'
+    elsif player_01 == STONE && player_02 == SCISSOR
+      'Player 01 win!'
+    end
   end
 
 
