@@ -1,132 +1,80 @@
 require 'test_helper'
 
-SCISSOR = 1
+STONE = 1
 PAPER = 2
-STONE = 3
+SCISSOR = 3
 
-describe Game do
-  describe "#play" do
-    describe "when player 01 win" do
-      describe "when player 01 choose scissor and player 02 choose paper" do
-        it "should return player 01 win" do
-          player_01_choice = SCISSOR
-          player_02_choice = PAPER
+# GameTest class
+class GameTest < Minitest::Test
+  def test_when_player_01_choose_scissor_and_player_02_choose_paper
+    game = Game.new(SCISSOR, PAPER)
 
-          game = Game.new(player_01_choice, player_02_choice)
+    match = game.play
 
-          match = game.play
+    assert_equal(match, 'Player 01 win!')
+  end
 
-          expect(match).must_equal 'Player 01 win!'
-        end
-      end
+  def test_when_player_01_choose_paper_and_player_02_choose_stone
+    game = Game.new(PAPER, STONE)
 
-      describe "when player 01 choose paper and player 02 choose stone" do
-        it "should return player 01 win" do
-          player_01_choice = PAPER
-          player_02_choice = STONE
+    match = game.play
 
-          game = Game.new(player_01_choice, player_02_choice)
+    assert_equal(match, 'Player 01 win!')
+  end
 
-          match = game.play
+  def test_when_player_01_choose_stone_and_player_02_choose_scissor
+    game = Game.new(STONE, SCISSOR)
 
-          expect(match).must_equal 'Player 01 win!'
-        end
-      end
+    match = game.play
 
-      describe "when player 01 stone paper and player 02 choose scissor" do
-        it "should return player 01 win" do
-          player_01_choice = STONE
-          player_02_choice = SCISSOR
+    assert_equal(match, 'Player 01 win!')
+  end
 
-          game = Game.new(player_01_choice, player_02_choice)
+  def test_when_player_02_choose_scissor_and_player_01_choose_paper
+    game = Game.new(PAPER, SCISSOR)
 
-          match = game.play
+    match = game.play
 
-          expect(match).must_equal 'Player 01 win!'
-        end
-      end
-    end
+    assert_equal(match, 'Player 02 win!')
+  end
 
-    describe "when player 02 win" do
-      describe "when player 02 choose scissor and player 02 choose paper" do
-        it "should return player 02 win" do
-          player_01_choice = PAPER
-          player_02_choice = SCISSOR
+  def test_when_player_02_choose_paper_and_player_01_choose_stone
+    game = Game.new(STONE, PAPER)
 
-          game = Game.new(player_01_choice, player_02_choice)
+    match = game.play
 
-          match = game.play
+    assert_equal(match, 'Player 02 win!')
+  end
 
-          expect(match).must_equal 'Player 02 win!'
-        end
-      end
+  def test_when_player_02_choose_stone_and_player_01_choose_scissor
+    game = Game.new(SCISSOR, STONE)
 
-      describe "when player 02 choose paper and player 02 choose stone" do
-        it "should return player 02 win" do
-          player_01_choice = STONE
-          player_02_choice = PAPER
+    match = game.play
 
-          game = Game.new(player_01_choice, player_02_choice)
+    assert_equal(match, 'Player 02 win!')
+  end
 
-          match = game.play
+  def test_when_all_players_chosse_scissor
+    game = Game.new(SCISSOR, SCISSOR)
 
-          expect(match).must_equal 'Player 02 win!'
-        end
-      end
+    match = game.play
 
-      describe "when player 02 stone paper and player 02 choose scissor" do
-        it "should return player 02 win" do
-          player_01_choice = SCISSOR
-          player_02_choice = STONE
+    assert_equal(match, 'Draw!')
+  end
 
-          game = Game.new(player_01_choice, player_02_choice)
+  def test_when_all_players_chosse_paper
+    game = Game.new(PAPER, PAPER)
 
-          match = game.play
+    match = game.play
 
-          expect(match).must_equal 'Player 02 win!'
-        end
-      end
-    end
+    assert_equal(match, 'Draw!')
+  end
 
-    describe "when players is draw" do
-      describe "when player 01 and player 02 chooses scissors" do
-        it "should return draw" do
-          player_01_choice = SCISSOR
-          player_02_choice = SCISSOR
+  def test_when_all_players_chosse_stone
+    game = Game.new(STONE, STONE)
 
-          game = Game.new(player_01_choice, player_02_choice)
+    match = game.play
 
-          match = game.play
-          
-          _(match).must_equal 'Draw!'
-        end
-      end
-
-      describe "when player 01 and player 02 chooses paper" do
-        it "should return draw" do
-          player_01_choice = PAPER
-          player_02_choice = PAPER
-
-          game = Game.new(player_01_choice, player_02_choice)
-
-          match = game.play
-          
-          _(match).must_equal 'Draw!'
-        end
-      end
-
-      describe "when player 01 and player 02 chooses stone" do
-        it "should return draw" do
-          player_01_choice = STONE
-          player_02_choice = STONE
-
-          game = Game.new(player_01_choice, player_02_choice)
-
-          match = game.play
-          
-          _(match).must_equal 'Draw!'
-        end
-      end
-    end
+    assert_equal(match, 'Draw!')
   end
 end
