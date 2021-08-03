@@ -1,8 +1,8 @@
 require 'test_helper'
 
-SCISSOR = 1
+STONE = 1
 PAPER = 2
-STONE = 3
+SCISSOR = 3
 
 describe Game do
   describe "#play" do
