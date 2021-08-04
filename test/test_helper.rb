@@ -1,6 +1,7 @@
 require 'simplecov'
+
 SimpleCov.start
 
-require 'game'
+require 'jo_ken_po'
 
 require 'minitest/autorun'

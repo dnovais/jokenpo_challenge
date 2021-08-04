@@ -1,13 +1,13 @@
 require 'test_helper'
 
-STONE = 1
-PAPER = 2
-SCISSOR = 3
-
 # GameTest class
-class GameTest < Minitest::Test
+class JoKenPo::GameTest < Minitest::Test
+  STONE = 1
+  PAPER = 2
+  SCISSOR = 3
+
   def test_when_player_01_choose_scissor_and_player_02_choose_paper
-    game = Game.new(SCISSOR, PAPER)
+    game = JoKenPo::Game.new(SCISSOR, PAPER)
 
     match = game.play
 
@@ -15,7 +15,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_player_01_choose_paper_and_player_02_choose_stone
-    game = Game.new(PAPER, STONE)
+    game = JoKenPo::Game.new(PAPER, STONE)
 
     match = game.play
 
@@ -23,7 +23,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_player_01_choose_stone_and_player_02_choose_scissor
-    game = Game.new(STONE, SCISSOR)
+    game = JoKenPo::Game.new(STONE, SCISSOR)
 
     match = game.play
 
@@ -31,7 +31,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_player_02_choose_scissor_and_player_01_choose_paper
-    game = Game.new(PAPER, SCISSOR)
+    game = JoKenPo::Game.new(PAPER, SCISSOR)
 
     match = game.play
 
@@ -39,7 +39,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_player_02_choose_paper_and_player_01_choose_stone
-    game = Game.new(STONE, PAPER)
+    game = JoKenPo::Game.new(STONE, PAPER)
 
     match = game.play
 
@@ -47,7 +47,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_player_02_choose_stone_and_player_01_choose_scissor
-    game = Game.new(SCISSOR, STONE)
+    game = JoKenPo::Game.new(SCISSOR, STONE)
 
     match = game.play
 
@@ -55,7 +55,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_all_players_chosse_scissor
-    game = Game.new(SCISSOR, SCISSOR)
+    game = JoKenPo::Game.new(SCISSOR, SCISSOR)
 
     match = game.play
 
@@ -63,7 +63,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_all_players_chosse_paper
-    game = Game.new(PAPER, PAPER)
+    game = JoKenPo::Game.new(PAPER, PAPER)
 
     match = game.play
 
@@ -71,7 +71,7 @@ class GameTest < Minitest::Test
   end
 
   def test_when_all_players_chosse_stone
-    game = Game.new(STONE, STONE)
+    game = JoKenPo::Game.new(STONE, STONE)
 
     match = game.play
 
