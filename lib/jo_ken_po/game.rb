@@ -13,19 +13,22 @@ module JoKenPo
     end
 
     def play
-      start
+      result
     end
 
     private
+      attr_reader :player_01_choice, :player_02_choice
 
-    attr_reader :player_01_choice, :player_02_choice, :result
+      def result
+        game_calc_result = game_calc
+        JoKenPo::Operations::CheckResult.who_is_winner?(result: game_calc_result)
+      end
 
-    def start
-      result = JoKenPo::Operations::Calc.new.proccess(first_player_choice: player_01_choice, second_player_choice: player_02_choice)
-
-      return 'Draw!' if result == 0
-
-      result == 1 ? 'Player 01 win!' : 'Player 02 win!'
-    end
+      def game_calc
+        JoKenPo::Operations::Calc.proccess(
+          first_player_choice: player_01_choice, 
+          second_player_choice: player_02_choice
+        )
+      end
   end
 end
