@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
+# Class Game
 class Game
   STONE = 1
   PAPER = 2
   SCISSOR = 3
 
-  def initialize(player_01, player_02)
-    @player_01 = player_01
-    @player_02 = player_02
+  def initialize(player_01_choice, player_02_choice)
+    @player_01_choice = player_01_choice
+    @player_02_choice = player_02_choice
   end
 
   def play
@@ -16,7 +17,7 @@ class Game
 
   private
 
-  attr_reader :player_01, :player_02
+  attr_reader :player_01_choice, :player_02_choice
 
   def start
     return 'Draw!' if game_calc == 0
@@ -25,6 +26,6 @@ class Game
   end
 
   def game_calc
-    (player_01 - player_02) % 3
+    (player_01_choice - player_02_choice) % 3
   end
 end
