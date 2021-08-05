@@ -1,6 +1,7 @@
 module JoKenPo
-  module Operations
-    module CheckResult
+  module Engine
+    # Class Result
+    class Result
       def who_is_winner?(result:)
         return 'Draw!' if result == 0
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Class Game
 module JoKenPo
+  # Class Game
   class Game
     STONE = 1
     PAPER = 2
@@ -21,11 +21,11 @@ module JoKenPo
 
       def result
         game_calc_result = game_calc
-        JoKenPo::Operations::CheckResult.who_is_winner?(result: game_calc_result)
+        JoKenPo::Engine::Result.new.who_is_winner?(result: game_calc_result)
       end
 
       def game_calc
-        JoKenPo::Operations::Calc.proccess(
+        JoKenPo::Engine::Calc.new.proccess(
           first_player_choice: player_01_choice, 
           second_player_choice: player_02_choice
         )
