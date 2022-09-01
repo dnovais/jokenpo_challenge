@@ -1,2 +1,2 @@
 # jokenpo_challenge
-SOLID, Clean Arch, Hexagonal, all in the same project
+Rock Paper and Scissors with Ruby
